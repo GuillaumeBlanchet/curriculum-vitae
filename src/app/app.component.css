@@ -1,0 +1,75 @@
+.export-pdf, .export-word {
+    position: fixed;
+    top: 30px;
+    z-index: 1000;
+}
+
+.export-pdf {
+    right: 30px;
+}
+
+.export-word {
+    right: 150px;
+}
+
+
+.cv-two-column {
+    /* padding: 0 24px 24px 24px; */
+    display: flex;
+    justify-content: center;
+}
+
+.printable-email {
+    display: none;
+}
+
+address a {
+    display: flex;
+    align-items: center;
+}
+
+.left, .right {
+    width: 48%;
+    display: inline-block;
+    padding: 12px;
+}
+
+@media only screen and (max-width: 700px) {
+    app-experience-grid {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 700px), print {
+    .cv-two-column {
+        width: 100%;
+        display: block;
+    }
+
+    .left, .right {
+        width: 100%;
+        display: block;
+    }
+
+    .full-width {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .export {
+        display: none;
+    }
+}
+
+@media print {
+    .printable-email {
+        display: block;
+    }    
+}
+
+.full-width {
+    width: 100%;
+    display: block;
+    padding-left: calc(2% + 12px);
+    padding-right: calc(2% + 12px);
+}

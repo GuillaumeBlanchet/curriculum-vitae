@@ -1,0 +1,60 @@
+<mat-card class="card">
+  <mat-card-title class="card-title mat-elevation-z2"> Grille de réalisations professionnelles </mat-card-title>
+  <mat-card-content id="card-table" class="card-content mat-elevation-z2">
+    <div class="table-header">
+        <div>  <span class="mat-body-strong">Total de l'expérience:</span> {{getExperienceTotal()}} </div>
+      
+      
+      
+      <div class="toolbar-action">
+      
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrer">
+      </mat-form-field>
+      <button mat-button mat-raised-button (click)="export()">Exporter <img src="../../assets/img/icons8-microsoft-excel-24.png" alt="excel export"></button>
+      </div>
+    </div>
+    <mat-table #table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="no">
+        <mat-header-cell *matHeaderCellDef> # Mandat</mat-header-cell>
+        <mat-cell *matCellDef="let element"> <a href="{{'#' + element.no}}">{{element.no}}</a> </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="client">
+        <mat-header-cell *matHeaderCellDef> Client </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.client}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="project">
+        <mat-header-cell *matHeaderCellDef class="project"> Projet </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="project"> {{element.project}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="function">
+        <mat-header-cell *matHeaderCellDef> Fonction </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.function}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="period">
+        <mat-header-cell *matHeaderCellDef> Période </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.start | amLocale:'fr' | amDateFormat: 'MMM YYYY'}} -
+          {{element.end | amLocale:'fr' | amDateFormat: 'MMM YYYY'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef> Durée (mois) </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.duration}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,36 @@
+<!-- <a target="_blank" href="../assets/CV_BLANCHET_Guillaume.docx" mat-button mat-raised-button class="export-word">Exporter <img src="../assets/img/icons8-microsoft-word-24.png" alt="word export"></a>
+<a target="_blank" href="../assets/CV_BLANCHET_Guillaume.pdf" mat-button mat-raised-button class="export-pdf">Exporter <img src="../assets/img/icons8-pdf-20.png" alt="pdf export"></a> -->
+
+<div class="header" [class.mat-elevation-z2]="true">
+  <div class="profile-container">
+    <img class="profile" src="../assets/gblanchet.jpg" alt="Guillaume">
+  </div>
+  <h1 class="mat-h1"> Guillaume Blanchet </h1>
+  <h2 class="mat-h2"> Architecte organique &amp; Analyste en recherche opérationelle </h2>
+
+  <address>
+    <a href="mailto:guillaume_blanchet2@yahoo.fr"> 
+      <img src="../assets/email.png" alt="Contactez-moi!"> 
+      <span class="printable-email"> guillaume_blanchet2@yahoo.fr </span>
+    </a> 
+    Québec, Canada
+  </address>
+</div>
+
+<div class="cv-content">
+  <div class="cv-two-column">
+    <div class="left">
+      <app-career-summary></app-career-summary>
+      <app-education></app-education>
+    </div>
+
+    <div class="right">
+      <app-honors></app-honors>
+      <app-publications></app-publications>
+    </div>
+  </div>
+  <div class="full-width">
+    <app-experience-grid></app-experience-grid>
+    <app-experience></app-experience>
+  </div>
+</div>

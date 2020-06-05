@@ -1,0 +1,39 @@
+<!--  
+  no: number;
+  client: string;
+  project: string;
+  function: string;
+  start: Date;
+  end: Date;
+  duration: number;
+  tags: Array<string>;-->
+
+<mat-card class="card">
+  <mat-card-title class="card-title mat-elevation-z2"> Réalisations </mat-card-title>
+  <ng-container *ngFor="let accomplishment of accomplishments">
+    <mat-card-subtitle class="card-subtitle" [attr.id]="accomplishment.no"> 
+      <div class="accomplishment-title"> 
+        <div> {{accomplishment.no}} - {{accomplishment.client}} </div>
+        <div> {{accomplishment.project}} </div>
+        <div>{{accomplishment.start | amLocale:'fr' | amDateFormat: 'MMM YYYY'}} - {{accomplishment.end | amLocale:'fr' | amDateFormat: 'MMM YYYY'}} </div>
+      </div>
+    </mat-card-subtitle>
+    <mat-card-content class="card-content">
+      <p> Fonction: {{accomplishment.function}} </p>
+      <h4> Contexte et projet de l'organisation </h4>
+      <div [innerHTML]="accomplishment.context">
+      </div>
+      <h4> Responsabilités et réalisations </h4>
+      <div [innerHTML]="accomplishment.responsability">
+      </div>
+      <h4 *ngIf="accomplishment.deliverables"> Biens livrables </h4>
+      <div [innerHTML]="accomplishment.deliverables">
+      </div>
+      <mat-chip-list>
+        <mat-chip *ngFor="let tag of accomplishment.tags">{{tag}}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+
+    <div class="divider"></div>
+  </ng-container>
+</mat-card>
