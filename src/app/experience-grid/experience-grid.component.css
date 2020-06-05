@@ -1,0 +1,28 @@
+.project {
+    min-width: 350px;
+}
+
+#card-table {
+    margin-top: -16px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: -24px;
+}
+
+.table-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .table-header .mat-form-field {
+    font-size: 14px;
+    width: 300px;
+  }
+
+  .toolbar-action > * {
+      margin-left: 6px;
+      margin-right: 6px;
+  }
